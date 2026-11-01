@@ -1,0 +1,19 @@
+title: Network Connection to IP Contacted by Analysed Sample
+id: fe04ae87-30fa-5e77-b1fd-94d942167222
+status: experimental
+description: Public IPs contacted by the sample during detonation.
+author: SandboxScribe
+date: 2026/11/01
+tags:
+    - attack.command-and-control
+logsource:
+    category: network_connection
+    product: windows
+detection:
+    selection:
+        DestinationIp:
+            - '203.0.113.45'
+    condition: selection
+falsepositives:
+    - Legitimate use of the same binaries/paths; tune before production
+level: high

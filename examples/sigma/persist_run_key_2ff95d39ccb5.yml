@@ -1,0 +1,20 @@
+title: Registry Persistence Value Set by Analysed Sample
+id: 28116603-be8c-54c4-a07a-3a27ad6b4920
+status: experimental
+description: Autostart registry value created during detonation.
+author: SandboxScribe
+date: 2026/11/01
+tags:
+    - attack.persistence
+    - attack.t1547.001
+logsource:
+    category: registry_set
+    product: windows
+detection:
+    selection:
+        TargetObject|endswith:
+            - '\Run\WindowsUpdateHelper'
+    condition: selection
+falsepositives:
+    - Legitimate use of the same binaries/paths; tune before production
+level: high

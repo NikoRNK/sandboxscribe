@@ -1,0 +1,13 @@
+type,value,defanged,context,sample_sha256,verdict
+sha256,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,sample Invoice_2025-10.docm,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,MALICIOUS
+md5,a2bbbcda67afc8a0c579a2747ad6fdc7,a2bbbcda67afc8a0c579a2747ad6fdc7,sample Invoice_2025-10.docm,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,MALICIOUS
+sha1,1766dfcb4b5c89e6401b72c15bed6f5d37fb887f,1766dfcb4b5c89e6401b72c15bed6f5d37fb887f,sample Invoice_2025-10.docm,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,MALICIOUS
+sha256,9a496227eda43e61e28c028ac3db3b66322fcb051282861b2e5dd3c109a6a560,9a496227eda43e61e28c028ac3db3b66322fcb051282861b2e5dd3c109a6a560,dropped svchost32.exe,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,MALICIOUS
+domain,update-cdn-7x2k9qv4mz.example,update-cdn-7x2k9qv4mz[.]example,contacted,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,MALICIOUS
+ip,203.0.113.45,203[.]0[.]113[.]45,contacted,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,MALICIOUS
+url,http://203.0.113.45:8443/gate,hxxp://203[.]0[.]113[.]45:8443/gate,requested,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,MALICIOUS
+url,http://203.0.113.45:8443/upload,hxxp://203[.]0[.]113[.]45:8443/upload,requested,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,MALICIOUS
+url,http://update-cdn-7x2k9qv4mz.example/stage2.bin,hxxp://update-cdn-7x2k9qv4mz[.]example/stage2[.]bin,requested,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,MALICIOUS
+mutex,Global\SynthMutex-7Q2K,Global\SynthMutex-7Q2K,created,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,MALICIOUS
+registry,HKCU\Software\Microsoft\Windows\CurrentVersion\Run [WindowsUpdateHelper],HKCU\Software\Microsoft\Windows\CurrentVersion\Run,data=C:\Users\analyst\AppData\Roaming\Microsoft\Windows\svchost32.exe,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,MALICIOUS
+file,C:\Users\analyst\AppData\Roaming\Microsoft\Windows\svchost32.exe,C:\Users\analyst\AppData\Roaming\Microsoft\Windows\svchost32.exe,dropped,2ff95d39ccb5653f0a920649c46bb2c28e0cb67d3b1fb9b9989a5bd430891483,MALICIOUS

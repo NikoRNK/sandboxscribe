@@ -1,0 +1,74 @@
+{
+  "sample": {
+    "name": "setup_notepad_tool.exe",
+    "sha256": "7c3f9a1e5b2d4c8a6e0f1b3d5a7c9e2f4b6d8a0c1e3f5a7b9d1c3e5f7a9b1c3d",
+    "size": 2411008,
+    "file_type": "PE32 installer (SYNTHETIC training sample)"
+  },
+  "environment": {
+    "sandbox": "isolated VM + Sysmon (synthetic)",
+    "os": "Windows 10 22H2 x64",
+    "duration_s": 120,
+    "network": "simulated"
+  },
+  "events": [
+    {
+      "t": 0.0,
+      "type": "process_create",
+      "pid": 900,
+      "ppid": 700,
+      "image": "C:\\Users\\analyst\\Downloads\\setup_notepad_tool.exe",
+      "cmdline": "\"C:\\Users\\analyst\\Downloads\\setup_notepad_tool.exe\" /S",
+      "parent_image": "C:\\Windows\\explorer.exe"
+    },
+    {
+      "t": 3.2,
+      "type": "file_write",
+      "pid": 900,
+      "path": "C:\\Program Files\\NotepadTool\\notepadtool.exe"
+    },
+    {
+      "t": 3.4,
+      "type": "file_write",
+      "pid": 900,
+      "path": "C:\\Program Files\\NotepadTool\\readme.txt"
+    },
+    {
+      "t": 4.0,
+      "type": "registry_set",
+      "pid": 900,
+      "key": "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\NotepadTool",
+      "value_name": "DisplayName",
+      "data": "Notepad Tool"
+    },
+    {
+      "t": 5.1,
+      "type": "dns_query",
+      "pid": 1088,
+      "name": "www.msftconnecttest.com",
+      "answers": [
+        "198.51.100.201"
+      ],
+      "image": "C:\\Windows\\System32\\svchost.exe"
+    },
+    {
+      "t": 5.9,
+      "type": "dns_query",
+      "pid": 1088,
+      "name": "ocsp.digicert.com",
+      "answers": [
+        "198.51.100.202"
+      ],
+      "image": "C:\\Windows\\System32\\svchost.exe"
+    },
+    {
+      "t": 7.0,
+      "type": "process_create",
+      "pid": 910,
+      "ppid": 900,
+      "image": "C:\\Program Files\\NotepadTool\\notepadtool.exe",
+      "cmdline": "\"C:\\Program Files\\NotepadTool\\notepadtool.exe\"",
+      "parent_image": "C:\\Users\\analyst\\Downloads\\setup_notepad_tool.exe"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sandboxscribe"
+version = "1.0.0"
+description = "Turn raw sandbox / Sysmon telemetry into an analyst-ready malware report: process tree, behaviour timeline, ATT&CK mapping, IOCs, Sigma rules and a containment recommendation."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "NikoRNK" }]
+keywords = ["soc", "malware-analysis", "sandbox", "dfir", "blue-team", "sigma", "mitre-attack", "sysmon"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+sandboxscribe = "sandboxscribe.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["sandboxscribe*"]

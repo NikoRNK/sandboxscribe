@@ -1,0 +1,20 @@
+title: Executable Dropped to User-Writable Path by Analysed Sample
+id: 1c8bd2b6-061c-51ea-b10c-6660d0cdcb51
+status: experimental
+description: File names written by the sample during detonation.
+author: SandboxScribe
+date: 2026/11/01
+tags:
+    - attack.execution
+    - attack.t1204.002
+logsource:
+    category: file_event
+    product: windows
+detection:
+    selection:
+        TargetFilename|endswith:
+            - '\svchost32.exe'
+    condition: selection
+falsepositives:
+    - Legitimate use of the same binaries/paths; tune before production
+level: medium
